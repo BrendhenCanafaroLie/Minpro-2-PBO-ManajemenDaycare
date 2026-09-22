@@ -1,45 +1,22 @@
 package model;
 
-
-// Class entitas OrangTua.
-// Menyimpan data wali yang mendaftarkan atau menjemput anak.
-// Menerapkan encapsulation: seluruh atribut bersifat private,
-// akses hanya melalui getter dan setter (access modifier).
-
-public class OrangTua {
-    private String idOrangTua;
-    private String namaOrangTua;
-    private long noHp;
+// Subclass dari Orang.
+// Menambah atribut noHp dan alamat.
+public class OrangTua extends Orang {
+    private String noHp;
     private String alamat;
 
-    public OrangTua(String idOrangTua, String namaOrangTua, long noHp, String alamat) {
-        this.idOrangTua = idOrangTua;
-        this.namaOrangTua = namaOrangTua;
+    public OrangTua(String id, String nama, String noHp, String alamat) {
+        super(id, nama);
         this.noHp = noHp;
         this.alamat = alamat;
     }
 
-    public String getIdOrangTua() {
-        return idOrangTua;
-    }
-
-    public void setIdOrangTua(String idOrangTua) {
-        this.idOrangTua = idOrangTua;
-    }
-
-    public String getNamaOrangTua() {
-        return namaOrangTua;
-    }
-
-    public void setNamaOrangTua(String namaOrangTua) {
-        this.namaOrangTua = namaOrangTua;
-    }
-
-    public long getNoHp() {
+    public String getNoHp() {
         return noHp;
     }
 
-    public void setNoHp(long noHp) {
+    public void setNoHp(String noHp) {
         this.noHp = noHp;
     }
 
@@ -51,11 +28,13 @@ public class OrangTua {
         this.alamat = alamat;
     }
 
-    
+    // Overriding
+    public String getPeran() {
+        return "Orang Tua";
+    }
+
+    // Overriding
     public String toString() {
-        return "ID: " + idOrangTua
-                + " | Nama: " + namaOrangTua
-                + " | No HP: " + noHp
-                + " | Alamat: " + alamat;
+        return super.toString() + " | No HP: " + noHp + " | Alamat: " + alamat;
     }
 }

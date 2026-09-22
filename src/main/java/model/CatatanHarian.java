@@ -1,9 +1,6 @@
 package model;
 
-
-// Class entitas CatatanHarian.
-// Jurnal harian yang diisi pengasuh untuk memantau kegiatan anak selama berada di daycare.
-
+// Jurnal harian kegiatan anak di daycare.
 public class CatatanHarian {
     private String idCatatan;
     private String idAnak;
@@ -49,11 +46,7 @@ public class CatatanHarian {
         this.aktivitas = aktivitas;
     }
 
-//    
     public String toString() {
-        return "ID Catatan: " + idCatatan
-                + " | ID Anak: " + idAnak
-                + " | Tanggal: " + tanggal
-                + " | Aktivitas: " + aktivitas;
+        return "ID Catatan: " + idCatatan + " | ID Anak: " + idAnak + " | Tanggal: " + tanggal + " | Aktivitas: " + aktivitas;
     }
 }

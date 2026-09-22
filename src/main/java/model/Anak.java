@@ -1,39 +1,17 @@
 package model;
 
-
-// Class entitas Anak.
-// Menyimpan data anak yang dititipkan di daycare.
-// Atribut idOrangTua menghubungkan anak dengan data wali 
-
-public class Anak {
-    private String idAnak;
-    private String namaAnak;
+// Subclass dari Orang.
+// Menambah atribut umur, catatanKesehatan, dan idOrangTua.
+public class Anak extends Orang {
     private int umur;
     private String catatanKesehatan;
     private String idOrangTua;
 
-    public Anak(String idAnak, String namaAnak, int umur, String catatanKesehatan, String idOrangTua) {
-        this.idAnak = idAnak;
-        this.namaAnak = namaAnak;
+    public Anak(String id, String nama, int umur, String catatanKesehatan, String idOrangTua) {
+        super(id, nama);
         this.umur = umur;
         this.catatanKesehatan = catatanKesehatan;
         this.idOrangTua = idOrangTua;
-    }
-
-    public String getIdAnak() {
-        return idAnak;
-    }
-
-    public void setIdAnak(String idAnak) {
-        this.idAnak = idAnak;
-    }
-
-    public String getNamaAnak() {
-        return namaAnak;
-    }
-
-    public void setNamaAnak(String namaAnak) {
-        this.namaAnak = namaAnak;
     }
 
     public int getUmur() {
@@ -60,12 +38,14 @@ public class Anak {
         this.idOrangTua = idOrangTua;
     }
 
-    
+    // Overriding
+    public String getPeran() {
+        return "Anak";
+    }
+
+    // Overriding
     public String toString() {
-        return "ID: " + idAnak
-                + " | Nama: " + namaAnak
-                + " | Umur: " + umur + " tahun"
-                + " | Catatan Kesehatan: " + catatanKesehatan
+        return super.toString() + " | Umur: " + umur + " tahun | Kesehatan: " + catatanKesehatan
                 + " | ID Orang Tua: " + idOrangTua;
     }
 }
