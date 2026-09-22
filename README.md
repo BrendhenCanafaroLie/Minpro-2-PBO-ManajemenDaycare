@@ -6,30 +6,15 @@ Sistem Manajemen Daycare adalah program berbasis console (Java) untuk mencatat d
 
 Program ini adalah pengembangan dari Mini Project 1, dengan tambahan inheritance, struktur MVC, polymorphism, dan dummy data awal.
 
-<!-- SCREENSHOT: tampilan awal program (banner "SELAMAT DATANG DI SISTEM MANAJEMEN DAYCARE" + menu utama) -->
-<!-- ![Tampilan Menu Utama](screenshots/menu-utama.png) -->
 
-## 2. Struktur Package (MVC)
+<img width="366" height="176" alt="image" src="https://github.com/user-attachments/assets/df2a3d39-27e0-49e8-8731-8a6b5530aa8f" />
 
-```
-src/
-├── Main.java                       -> program utama (menu utama)
-├── model/                          -> MODEL: bentuk data
-│   ├── Orang.java                  (superclass)
-│   ├── OrangTua.java               (subclass)
-│   ├── Anak.java                   (subclass)
-│   └── CatatanHarian.java
-├── view/                           -> VIEW: menu dan input/output ke layar
-│   ├── OrangTuaView.java
-│   ├── AnakView.java
-│   └── CatatanHarianView.java
-├── controller/                     -> CONTROLLER: logika CRUD dan penyimpanan ArrayList
-│   ├── OrangTuaController.java
-│   ├── AnakController.java
-│   └── CatatanHarianController.java
-└── helper/
-    └── InputValidator.java         -> validasi input
-```
+
+## 2. Struktur Package
+
+
+<img width="257" height="327" alt="image" src="https://github.com/user-attachments/assets/bac1f888-a9ad-4547-8d45-95d4b5fa9b9a" />
+
 
 | Package | Fungsi |
 |---------|--------|
@@ -52,21 +37,29 @@ src/
    - Catatan harian hanya bisa dibuat untuk ID anak yang sudah terdaftar. ID catatan dibuat otomatis (C1, C2, ...).
    - ID orang tua dan ID anak tidak boleh sama dengan data yang sudah ada.
 
-<!-- SCREENSHOT: contoh alur input, misal tambah data anak dari awal sampai berhasil -->
-<!-- ![Contoh Alur Tambah Data Anak](screenshots/alur-tambah-anak.png) -->
+
+<img width="709" height="228" alt="image" src="https://github.com/user-attachments/assets/5fe6d31f-4dfc-4d07-aac2-2bd528497a32" />
+
+
+<img width="898" height="88" alt="image" src="https://github.com/user-attachments/assets/07706c00-24cb-43b8-9375-8f9a387c65b6" />
+
+
+<img width="350" height="163" alt="image" src="https://github.com/user-attachments/assets/6637601e-3b5a-4efe-a5df-9a34d18a6a9b" />
+
 
 ### Dummy data awal
 
-| Data | Isi |
-|------|-----|
-| Orang Tua | OT001 Budi Santoso, OT002 Siti Rahayu |
-| Anak | A001 Rafi Santoso (orang tua OT001), A002 Aisyah Rahayu (orang tua OT002) |
-| Catatan Harian | C1 dan C2 untuk A001, C3 untuk A002 |
-
 Dummy data diisi di constructor masing-masing Controller, sehingga saat fitur *Tampilkan* dijalankan data langsung muncul.
 
-<!-- SCREENSHOT: hasil "Tampilkan Semua" di salah satu menu (Orang Tua/Anak/Catatan Harian) yang menunjukkan dummy data langsung muncul -->
-<!-- ![Dummy Data Tampil](screenshots/dummy-data.png) -->
+
+<img width="756" height="105" alt="image" src="https://github.com/user-attachments/assets/ca4487ee-57a7-494f-9b9e-bcc97e98445d" />
+
+
+<img width="911" height="106" alt="image" src="https://github.com/user-attachments/assets/c91d3fad-2700-46a1-bbd8-9d30a80e339a" />
+
+
+<img width="678" height="122" alt="image" src="https://github.com/user-attachments/assets/cfd80368-06a9-448e-8819-bcfbdef476f4" />
+
 
 ## 4. Penerapan Validasi Input
 
@@ -78,8 +71,11 @@ Semua input melewati `helper/InputValidator.java`:
 - `ambilTanggal` : format harus YYYY-MM-DD
 - `ambilPilihanMenu` : harus angka sesuai rentang menu
 
-<!-- SCREENSHOT: contoh pesan error validasi, misal input nomor HP atau tanggal yang salah format lalu diminta ulang -->
-<!-- ![Contoh Validasi Input](screenshots/validasi-input.png) -->
+Contoh Validasi
+
+
+<img width="639" height="317" alt="image" src="https://github.com/user-attachments/assets/5e311cb7-1368-4315-bded-71dce394175b" />
+
 
 ## 5. Penerapan Encapsulation
 
@@ -87,29 +83,26 @@ Semua input melewati `helper/InputValidator.java`:
 - Atribut hanya bisa diakses lewat getter dan setter `public`, contoh: `getNoHp()` dan `setNoHp()` di `OrangTua.java`.
 - Field `ArrayList` di Controller juga `private`, dan method yang hanya dipakai di dalam class (misalnya `tambah()` dan `hapus()` di View) dibuat `private`.
 
+<img width="236" height="71" alt="image" src="https://github.com/user-attachments/assets/db37d43b-ba85-48e1-9849-8f473c0009f6" />
+
+
+<img width="635" height="104" alt="image" src="https://github.com/user-attachments/assets/4ee78a58-dd9b-445a-b999-e104cf6f49f6" />
+
+
 ## 6. Penerapan Inheritance
 
 Ada 1 superclass dan 2 subclass:
 
-```
-          Orang
-      (id, nama)
-        /      \
-   OrangTua    Anak
-```
 
-| Class | Keterangan |
-|-------|------------|
-| `Orang` | Superclass. Menyimpan `id`, `nama`, beserta getter/setter-nya, dan method `getPeran()`. |
-| `OrangTua` | Subclass (`extends Orang`). Menambah `noHp` dan `alamat`. |
-| `Anak` | Subclass (`extends Orang`). Menambah `umur`, `catatanKesehatan`, dan `idOrangTua`. |
+<img width="1319" height="1536" alt="WhatsApp Image 2026-09-22 at 15 32 19" src="https://github.com/user-attachments/assets/b1b9a2f1-e453-4d82-966f-471fd0f20155" />
 
-Constructor subclass memanggil `super(id, nama)` untuk mengisi atribut milik superclass.
 
-## 7. Penjelasan Letak Penerapan Nilai Tambah
+
+## 7. Penjelasan MVC dan Polymorphism
 
 ### a. Struktur MVC
-Diterapkan pada seluruh program. Pembagian `model`, `view`, dan `controller` dijelaskan pada bagian 2 (Struktur Package). Perbedaan dengan Mini Project 1: sebelumnya class `Service` mengurus logika data sekaligus tampilan (Scanner dan `System.out`). Sekarang dipisah, View untuk tampilan dan Controller untuk logika data.
+Diterapkan pada seluruh program. Pembagian `model`, `view`, dan `controller` dijelaskan pada bagian 2 (Struktur Package). Perbedaan dengan Mini Project 1: sebelumnya class `Service` mengurus logika data sekaligus tampilan (Scanner dan `System.out`). Sekarang dipisah, **View untuk tampilan** dan **Controller untuk logika data**.
+
 
 ### b. Polymorphism
 
@@ -117,18 +110,17 @@ Diterapkan pada seluruh program. Pembagian `model`, `view`, dan `controller` dij
 - `getPeran()` di `Orang` (mengembalikan "Orang") di-override oleh `OrangTua` (mengembalikan "Orang Tua") dan `Anak` (mengembalikan "Anak").
 - `toString()` di `Orang` di-override oleh `OrangTua` dan `Anak` untuk menambahkan data masing-masing.
 
+
+<img width="688" height="84" alt="image" src="https://github.com/user-attachments/assets/c55ff42e-2e05-4d59-bb82-63d5cb8e2318" />
+
+
 **Method overloading**
 - `getRiwayat(String idAnak)` dan `getRiwayat(String idAnak, String tanggal)` di `CatatanHarianController.java`. Namanya sama tetapi parameternya berbeda: versi pertama menampilkan semua riwayat anak, versi kedua hanya riwayat pada tanggal tertentu (menu Catatan Harian nomor 2 dan 3).
 
-<!-- SCREENSHOT: contoh output overloading, misal "Lihat Riwayat Aktivitas Anak" vs "Lihat Riwayat Anak pada Tanggal Tertentu" berdampingan -->
-<!-- ![Contoh Overloading getRiwayat](screenshots/overloading-riwayat.png) -->
+<img width="739" height="83" alt="image" src="https://github.com/user-attachments/assets/58f14678-be33-4eaf-8410-8298dbd0c861" />
 
-## 8. Cara Menjalankan
 
-```bash
-mkdir out
-javac -d out $(find src -name "*.java")
-java -cp out Main
-```
+<img width="735" height="74" alt="image" src="https://github.com/user-attachments/assets/d5ded9d1-b664-48d9-b85f-c2babca78422" />
 
-Atau buka folder `src` di IDE (IntelliJ, NetBeans, VS Code) lalu jalankan `Main.java`.
+
+
