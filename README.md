@@ -1,8 +1,16 @@
 # Minpro-2-PBO-ManajemenDaycare
 
+### Brendhen Canafaro Lie 2509116033 (Kelas A)
+
 ## 1. Deskripsi Singkat Program
 
-Sistem Manajemen Daycare adalah program berbasis console (Java) untuk mencatat data orang tua/wali, data anak yang dititipkan, dan laporan kegiatan harian anak. Setiap data punya fitur CRUD (Tambah, Tampilkan, Update, Hapus).
+Program ini adalah aplikasi **CRUD (Create, Read, Update, Delete)** berbasis konsol (command line) yang mensimulasikan sistem rekap digital tempat penitipan anak (daycare). Program ini dibuat menggunakan bahasa **Java** dengan menerapkan konsep **Pemrograman Berorientasi Objek (PBO)**.
+
+Program ini mengelola tiga entitas utama:
+
+1. **OrangTua** — data wali yang mendaftarkan atau menjemput anak (`idOrangTua`, `namaOrangTua`, `noHp` bertipe `long`, `alamat`). Catatan: karena `noHp` disimpan sebagai tipe angka, angka `0` di paling depan nomor HP (misal `081234567890`) akan otomatis hilang menjadi `81234567890`.
+2. **Anak** — data anak yang dititipkan di daycare (`idAnak`, `namaAnak`, `umur`, `catatanKesehatan`), yang juga direlasikan ke `idOrangTua` sebagai wali penanggung jawabnya.
+3. **CatatanHarian** — jurnal harian yang diisi pengasuh untuk memantau kegiatan anak selama berada di daycare (`idCatatan`, `idAnak`, `tanggal`, `aktivitas`).
 
 Program ini adalah pengembangan dari Mini Project 1, dengan tambahan inheritance, struktur MVC, polymorphism, dan dummy data awal.
 
